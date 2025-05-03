@@ -46,3 +46,8 @@
 .res-card > div {
   font-weight: bold;
 }
+
+.filter {
+  padding: 5px;
+  margin: 5px;
+}

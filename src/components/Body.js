@@ -1,11 +1,22 @@
+import { useState } from "react";
 import RestaurantCard from "./ResturantCard";
 import resList from "../utils/resList";
 const Body = () => {
+  const [listOfResturants,setListOfResturants]  = useState(resList);
   return (
     <div className="body">
-      <input placeholder="Search..." className="search" />
+      {/* <input placeholder="Search..." className="search" /> */}
+      <button
+        className="filter"
+        onClick={() => {
+          const filteredResList = listOfResturants.filter((e) => e.rating > 4);
+          setListOfResturants(filteredResList);
+        }}
+      >
+        Filter
+      </button>
       <div className="res-container">
-        {resList.map((resturant, index) => (
+        {listOfResturants.map((resturant, index) => (
           <RestaurantCard key={index} resObj={resturant} />
         ))}
       </div>
