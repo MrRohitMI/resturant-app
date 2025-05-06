@@ -1,6 +1,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border: 1px solid black;
   background-color: rgb(240, 216, 216);
 }
@@ -50,4 +51,21 @@
 .filter {
   padding: 5px;
   margin: 5px;
+}
+
+.cuisines {
+  color: red;
+  font-size: small;
+}
+
+.shimmerCard {
+  width: 160px;
+  background-color: rgb(185, 177, 177);
+  height: 300px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.loginBtn {
+  padding: 10px;
 }
