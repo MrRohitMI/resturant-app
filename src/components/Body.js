@@ -3,6 +3,8 @@ import RestaurantCard from "./ResturantCard";
 import Shimmer from "./shimmer/Shimmer";
 const Body = () => {
   const [listOfResturants, setListOfResturants] = useState([]);
+  const [filteredResturants, setFilteredResturants] = useState([]);
+  const [searchText, setSearchText] = useState([]);
   useEffect(() => {
     fetchData();
   }, []);
@@ -14,15 +16,38 @@ const Body = () => {
     setListOfResturants(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setFilteredResturants(
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
-  return listOfResturants.length == 0 ? <Shimmer/> :(
+  return listOfResturants.length == 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
-      {/* <input placeholder="Search..." className="search" /> */}
+      <input
+        placeholder="Search..."
+        className="search"
+        value={searchText}
+        onChange={(e) => {
+          setSearchText(e.target.value);
+        }}
+      />
+      <button
+        className="loginBtn"
+        onClick={() => {
+          const filteredResList = listOfResturants.filter((e) =>
+            e?.info?.name.toLowerCase().includes(searchText.toLowerCase())
+          );
+          setFilteredResturants(filteredResList);
+        }}
+      >
+        Search
+      </button>
       <button
         className="filter"
         onClick={() => {
           const filteredResList = listOfResturants.filter(
-            (e) => e?.info?.avgRating > 4
+            (e) => e?.info?.avgRating > 4.2
           );
           setListOfResturants(filteredResList);
         }}
@@ -30,8 +55,11 @@ const Body = () => {
         Filter
       </button>
       <div className="res-container">
-        {listOfResturants.map((resturant, index) => (
-          <RestaurantCard key={resturant?.info?.id} resObj={resturant} />
+        {filteredResturants.map((resturant, index) => (
+          <RestaurantCard
+            key={resturant?.info?.id ?? index}
+            resObj={resturant}
+          />
         ))}
       </div>
     </div>
