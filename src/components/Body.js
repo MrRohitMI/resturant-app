@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import RestaurantCard from "./ResturantCard";
 import Shimmer from "./shimmer/Shimmer";
 import { Link } from "react-router-dom";
+import useCheckStatus from "../utils/useCheckStatus";
 const Body = () => {
   const [listOfResturants, setListOfResturants] = useState([]);
   const [filteredResturants, setFilteredResturants] = useState([]);
   const [searchText, setSearchText] = useState([]);
+  const status = useCheckStatus();
   useEffect(() => {
     fetchData();
   }, []);
@@ -21,7 +23,8 @@ const Body = () => {
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
-  return listOfResturants.length == 0 ? (
+  if (status === "Offline") return <h1>Please connect to a network.....</h1>;
+  return listOfResturants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body">
