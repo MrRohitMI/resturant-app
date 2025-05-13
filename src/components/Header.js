@@ -12,7 +12,7 @@ const Header = () => {
       </div>
       <div className="logo-items">
         <ul>
-          <li>{status === "Online" ? "✅" : "❌"}</li>
+          <li>Online Status : {status === "Online" ? "✅" : "❌"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -21,6 +21,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/grossery">Grossery</Link>
           </li>
           <li>Cart</li>
           <li>
