@@ -30,14 +30,14 @@ const Body = () => {
     <div className="body">
       <input
         placeholder="Search..."
-        className="search"
+        className="border border-gray-400 rounded my-5 mx-2 p-2"
         value={searchText}
         onChange={(e) => {
           setSearchText(e.target.value);
         }}
       />
       <button
-        className="loginBtn"
+        className="bg-blue-400 rounded px-1 py-1.5 border border-blue-900 me-2"
         onClick={() => {
           const filteredResList = listOfResturants.filter((e) =>
             e?.info?.name.toLowerCase().includes(searchText.toLowerCase())
@@ -48,17 +48,17 @@ const Body = () => {
         Search
       </button>
       <button
-        className="filter"
+        className="bg-blue-400 rounded px-1 py-1.5 border border-blue-900"
         onClick={() => {
           const filteredResList = listOfResturants.filter(
-            (e) => e?.info?.avgRating > 4.2
+            (e) => e?.info?.avgRating > 4
           );
-          setListOfResturants(filteredResList);
+          setFilteredResturants(filteredResList);
         }}
       >
         Filter
       </button>
-      <div className="res-container">
+      <div className="res-container flex gap-4 flex-wrap">
         {filteredResturants.map((resturant, index) => (
           <Link
             key={resturant?.info?.id ?? index}
