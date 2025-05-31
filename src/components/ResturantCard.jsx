@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { IMG_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard = (props) => {
   const { name, avgRating, costForTwo, cloudinaryImageId, cuisines } =
     props.resObj.info;
+  const { loggedInUser } = useContext(UserContext);
   return (
     <div className="w-[170px] rounded bg-gray-200 hover:bg-gray-300 p-3">
       <img src={IMG_URL + cloudinaryImageId} alt="dish" className="w-100" />
@@ -10,6 +13,7 @@ const RestaurantCard = (props) => {
       <div className="cuisines">{cuisines.join(", ")}</div>
       <div>Rating : {avgRating}</div>
       <div>Price : {costForTwo}</div>
+      <div>{loggedInUser}</div>
     </div>
   );
 };

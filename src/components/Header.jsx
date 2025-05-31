@@ -2,9 +2,12 @@ import { useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useCheckStatus from "../utils/useCheckStatus";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
   const status = useCheckStatus();
+  const data = useContext(UserContext);
   return (
     <div className="flex justify-between items-center bg-orange-300 py-2">
       <div>
@@ -36,6 +39,7 @@ const Header = () => {
               {btnName}
             </button>
           </li>
+          <div>{data.loggedInUser}</div>
         </ul>
       </div>
     </div>
