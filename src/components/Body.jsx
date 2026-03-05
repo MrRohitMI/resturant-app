@@ -16,14 +16,13 @@ const Body = () => {
   }, []);
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.38430&lng=78.45830&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?url=https://namastedev.com/api/v1/listRestaurants"
     );
     const json = await data.json();
-    setListOfResturants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    let restaurantData = json?.data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    setListOfResturants(restaurantData);
     setFilteredResturants(
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      restaurantData
     );
   };
   if (status === "Offline") return <h1>Please connect to a network.....</h1>;
@@ -58,7 +57,7 @@ const Body = () => {
             className="bg-blue-400 rounded px-1 py-1.5 border border-blue-900"
             onClick={() => {
               const filteredResList = listOfResturants.filter(
-                (e) => e?.info?.avgRating > 4
+                (e) => e?.info?.avgRating > 4.5
               );
               setFilteredResturants(filteredResList);
             }}

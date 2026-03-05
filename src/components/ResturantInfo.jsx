@@ -32,7 +32,7 @@ const ResturantInfo = () => {
         <div>
           {categories.map((item, index) => (
             <ResturantCategory
-              key={item?.card?.card?.categoryId}
+              key={item?.card?.card?.categoryId ?? index}
               data={item?.card?.card}
               showCategory={index === showIndex ? true : false}
               handleClick={handleCategory}
