@@ -25,14 +25,14 @@ function App() {
     <div className="App">
       {/* loggedInUser = "Rohit Mourya"(default) */}
       <Provider store={appStore}>
-        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        {/* <UserContext.Provider value={{ loggedInUser: userName, setUserName }}> */}
           {/* loggedInUser = "Cena" */}
           {/* <UserContext.Provider value={{ loggedInUser: "Happy" }}> */}
           {/* loggedInUser = "Happy" */}
           <Header />
           {/* </UserContext.Provider> */}
           <Outlet />
-        </UserContext.Provider>
+        {/* </UserContext.Provider> */}
       </Provider>
     </div>
   );

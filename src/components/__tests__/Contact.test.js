@@ -2,35 +2,38 @@ import { render, screen } from "@testing-library/react";
 import Contact from "../Contact";
 import "@testing-library/jest-dom";
 
-test('Contact is rendering or not', () => {
-    render(<Contact/>)
+describe('Contact Page Test Cases', () => {
 
-    const heading = screen.getByRole("heading");
+    test('Contact is rendering or not', () => {
+        render(<Contact />)
 
-    expect(heading).toBeInTheDocument();
-})
+        const heading = screen.getByRole("heading");
 
-test('Button is available in contact page', () => {
-    render(<Contact/>)
+        expect(heading).toBeInTheDocument();
+    })
 
-    const button = screen.getByRole("button");
+    test('Button is available in contact page', () => {
+        render(<Contact />)
 
-    expect(button).toBeInTheDocument();
-})
+        const button = screen.getByRole("button");
 
-test('Input Name is available or nor', () => {
-    render(<Contact/>)
+        expect(button).toBeInTheDocument();
+    })
 
-    const inputName = screen.getByPlaceholderText("Enter Name");
+    test('Input Name is available or nor', () => {
+        render(<Contact />)
 
-    expect(inputName).toBeInTheDocument();
-})
+        const inputName = screen.getByPlaceholderText("Enter Name");
 
-test('Should load 2 input in contact page', () => {
-    render(<Contact/>)
+        expect(inputName).toBeInTheDocument();
+    })
 
-    // Querying
-    const inputBoxes = screen.getAllByRole('textbox');
-    // Assert
-    expect(inputBoxes.length).toBe(2);
+    test('Should load 2 input in contact page', () => {
+        render(<Contact />)
+
+        // Querying
+        const inputBoxes = screen.getAllByRole('textbox');
+        // Assert
+        expect(inputBoxes.length).toBe(2);
+    })
 })
