@@ -9,7 +9,7 @@ const ItemsList = ({ item }) => {
   };
   return (
     <>
-      <div className="border-b-[1px] border-gray-600 flex items-center py-2">
+      <div className="border-b-[1px] border-gray-600 flex items-center py-2" data-testid="allFoodItems">
         <div className="w-9/12 text-left">
           <div className="font-bold">
             Rs. {item.price / 100 || item.defaultPrice / 100}

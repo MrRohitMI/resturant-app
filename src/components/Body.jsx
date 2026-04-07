@@ -32,6 +32,7 @@ const Body = () => {
     <div className="body">
       <div className="flex gap-2 items-center">
         <input
+          data-testid="search-input"
           placeholder="Search..."
           className="border border-gray-400 rounded my-5 mx-2 p-2"
           value={searchText}
@@ -62,7 +63,7 @@ const Body = () => {
               setFilteredResturants(filteredResList);
             }}
           >
-            Top Rated Resturant
+            Top Rated Restaurant
           </button>
         </div>
         <div>
