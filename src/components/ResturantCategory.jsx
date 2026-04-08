@@ -24,7 +24,7 @@ const ResturantCategory = ({ data, showCategory, handleClick, index }) => {
         {showCategory && (
           <div>
             {data.itemCards.map((item) => (
-              <ItemsList key={item?.card?.info?.id} item={item?.card?.info} />
+              <ItemsList key={item?.card?.info?.id} item={item?.card?.info} page="menu"/>
             ))}
           </div>
         )}

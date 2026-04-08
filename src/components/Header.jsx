@@ -12,6 +12,7 @@ const Header = () => {
 
   // Select
   const cartItems = useSelector((store) => store.cart.items);
+  const totalCount = cartItems.reduce((total,item)=>total + (item.quantity || 0),0)
   return (
     <div className="flex justify-between items-center bg-orange-300 py-2">
       <div>
@@ -33,7 +34,7 @@ const Header = () => {
             <Link to="/grossery">Grossery</Link>
           </li>
           <li>
-            <Link to="/cart">Cart({cartItems.length} Items)</Link>
+            <Link to="/cart">Cart({totalCount} Items)</Link>
           </li>
           <li>
             <button

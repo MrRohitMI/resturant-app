@@ -7,7 +7,7 @@ const RestaurantCard = (props) => {
     props.resObj.info;
   const { loggedInUser } = useContext(UserContext);
   return (
-    <div data-testid="resCard" className="w-[170px] rounded bg-gray-200 hover:bg-gray-300 p-3">
+    <div data-testid="resCard" className="w-[340px] rounded bg-gray-200 hover:bg-gray-300 p-3 m-2">
       <img src={IMG_URL + cloudinaryImageId} alt="dish" className="w-100"
         onError={(e) => {
           e.target.error = null
