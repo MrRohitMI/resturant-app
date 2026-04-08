@@ -6,8 +6,11 @@ const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
   const handleClearCart = () => {
-    dispatch(clearCart());
+    const confirmClear = window.confirm("Are sure that you want to clear the cart");
+    if(confirmClear) dispatch(clearCart());
   };
+  const totalPrice = cartItems.reduce((total,item) => total + ((item.price/100 || item.defaultPrice/100)*item.quantity),0)
+  console.log(cartItems);
   return (
     <>
       <div className="font-bold text-center">Cart</div>
@@ -27,8 +30,11 @@ const Cart = () => {
       </div>
       <div className="w-6/12 m-auto">
         {cartItems.map((item, index) => (
-          <ItemsList key={index} item={item} />
+          <ItemsList key={index} item={item} page="cart"/>
         ))}
+      </div>
+      <div className="w-6/12 m-auto bg-gray-300 mt-5 p-2 text-right text-lg font-bold">
+      Total Price - {totalPrice}
       </div>
     </>
   );
