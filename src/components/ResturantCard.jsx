@@ -7,17 +7,17 @@ const RestaurantCard = (props) => {
     props.resObj.info;
   const { loggedInUser } = useContext(UserContext);
   return (
-    <div data-testid="resCard" className="w-[340px] rounded bg-gray-200 hover:bg-gray-300 p-3 m-2">
+    <div data-testid="resCard" className="rounded bg-gray-200 p-3 group hover:bg-gray-300 hover:shadow-md hover:-mt-1">
       <img src={IMG_URL + cloudinaryImageId} alt="dish" className="w-100"
         onError={(e) => {
           e.target.error = null
           e.target.src = DUMMY_IMG
         }}
       />
-      <div>{name}</div>
-      <div className="cuisines">{cuisines.join(", ")}</div>
-      <div>Rating : {avgRating}</div>
-      <div>Price : {costForTwo}</div>
+      <div className="font-bold text-xl group-hover:text-orange-400">{name}</div>
+      <div className="cuisines font-bold">{cuisines.join(", ")}</div>
+      <div className="font-bold text-gray-600">Rating : {avgRating}</div>
+      <div className="group-hover:font-bold">Price : {costForTwo}</div>
       <div>{loggedInUser}</div>
     </div>
   );

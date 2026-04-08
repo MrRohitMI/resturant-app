@@ -24,7 +24,7 @@ const ResturantInfo = () => {
     );
   return (
     <>
-      <div className="text-center">
+      <div className="flex-1 overflow-auto text-center">
         <h3 className="text-2xl">{name}</h3>
         <p className="font-bold">{cuisines.join(", ")}</p>
         <p className="text-gray-600">Price : {costForTwoMessage}</p>
