@@ -66,7 +66,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/resturant/:resId",
+        path: "/restaurant/:resId",
         element: <ResturantInfo />,
       },
       {

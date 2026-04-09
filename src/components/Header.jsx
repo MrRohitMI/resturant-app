@@ -40,7 +40,7 @@ const Header = () => {
     <>
       <nav className="flex justify-between items-center bg-orange-300 p-2">
         <div>
-          <img className="w-18 bg-red rounded-lg" src={LOGO_URL} alt="Brand" />
+          <Link to="/"> <img className="w-18 bg-red rounded-lg" src={LOGO_URL} alt="Brand" /></Link>
         </div>
         <div>
           <ul className="*:m-3 *:hover:text-blue-900 *:hover:font-bold hidden lg:flex lg:items-center">
@@ -57,8 +57,8 @@ const Header = () => {
         </div>
 
         <div className="flex gap-x-3 items-center lg:hidden">
-          {cartLink}
-          
+          <p className="hover:text-blue-900">{cartLink}</p>
+
           <div className="font-bold">{data.loggedInUser}</div>
           <button onClick={(() => setShowIconLinks(prev => !prev))} className="text-3xl">☰</button>
         </div>

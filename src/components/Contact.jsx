@@ -19,7 +19,7 @@ const Contact = () => {
     setSuccess(true);
     setForm({ name: "", email: "", message: "" });
   };
-
+  const inputClass = "w-full border p-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-black"
   return (
     <div className="flex-1 overflow-auto bg-gray-50 px-4 md:px-10 py-10">
       <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
@@ -51,7 +51,7 @@ const Contact = () => {
             value={form.name}
             onChange={handleChange}
             placeholder="Your Name"
-            className="w-full border p-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-black"
+            className={inputClass}
           />
 
           <input
@@ -60,7 +60,7 @@ const Contact = () => {
             value={form.email}
             onChange={handleChange}
             placeholder="Your Email"
-            className="w-full border p-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-black"
+            className={inputClass}
           />
 
           <textarea
@@ -69,7 +69,7 @@ const Contact = () => {
             onChange={handleChange}
             placeholder="Your Message"
             rows="4"
-            className="w-full border p-3 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-black"
+            className={inputClass}
           />
 
           <button
