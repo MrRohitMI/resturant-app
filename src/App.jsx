@@ -11,6 +11,7 @@ import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 
 const Grossery = lazy(() => import("./components/Grossery"));
 function App() {
@@ -22,7 +23,7 @@ function App() {
     setUserName(data.name);
   }, []);
   return (
-    <div className="App">
+    <div className="App min-h-screen flex flex-col">
       {/* loggedInUser = "Rohit Mourya"(default) */}
       <Provider store={appStore}>
         {/* <UserContext.Provider value={{ loggedInUser: userName, setUserName }}> */}
@@ -32,6 +33,7 @@ function App() {
           <Header />
           {/* </UserContext.Provider> */}
           <Outlet />
+          <Footer/>
         {/* </UserContext.Provider> */}
       </Provider>
     </div>
@@ -64,7 +66,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/resturant/:resId",
+        path: "/restaurant/:resId",
         element: <ResturantInfo />,
       },
       {

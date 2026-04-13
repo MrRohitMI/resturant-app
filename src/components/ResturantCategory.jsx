@@ -3,7 +3,7 @@ import ItemsList from "./ItemsList";
 const ResturantCategory = ({ data, showCategory, handleClick, index }) => {
   return (
     <>
-      <div className="bg-gray-300 mx-auto my-3 w-6/12 p-2 shadow">
+      <div className="bg-gray-200 mx-auto my-3 w-11/12 p-2 shadow sm:w-8/12 lg:w-6/12 xl:6/12">
         <div
           className="flex justify-between items-center"
           onClick={() => {

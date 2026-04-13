@@ -23,10 +23,10 @@ const ItemsList = ({ item, page }) => {
               <button className="bg-gray-300 rounded border-[1px] border-gray-500 px-2">{item.quantity}</button>
               <button className="bg-gray-300 rounded border-[1px] border-gray-500 px-2" onClick={()=> handleRemoveItem(item)}>-</button></div> : ""}
         </div>
-        <div className="w-3/12 relative">
+        <div className="w-1/2 sm:w-4/12 lg:w-3/12 relative">
           {page == "menu" ?
             <button
-              className="bg-black text-white rounded-2xl px-3 py-1 absolute top-0.5 left-4/12"
+              className="bg-black text-white rounded-2xl px-3 py-1 absolute top-0.5 left-1/2 -translate-x-1/2"
               onClick={() => handleAddItem(item)}
             >
               Add +
@@ -34,7 +34,7 @@ const ItemsList = ({ item, page }) => {
           <img
             src={IMG_URL + item.imageId}
             alt="img"
-            className="rounded-sm border-[1px] border-gray-400"
+            className="rounded-sm h-24 sm:h-28 lg:h-auto w-full object-cover"
           />
         </div>
       </div>
