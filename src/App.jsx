@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import AboutUs from "./components/AboutUs";
+// import AboutUs from "./components/AboutUs";
 import Contact from "./components/Contact";
 import ResturantInfo from "./components/ResturantInfo";
 import Error from "./components/Error";
@@ -12,8 +12,10 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
+import AboutShimmer from "./components/shimmer/AboutShimmer";
 
 const Grossery = lazy(() => import("./components/Grossery"));
+const AboutUs = lazy(() => import("./components/AboutUs"))
 function App() {
   const [userName, setUserName] = useState();
   useEffect(() => {
@@ -27,13 +29,13 @@ function App() {
       {/* loggedInUser = "Rohit Mourya"(default) */}
       <Provider store={appStore}>
         {/* <UserContext.Provider value={{ loggedInUser: userName, setUserName }}> */}
-          {/* loggedInUser = "Cena" */}
-          {/* <UserContext.Provider value={{ loggedInUser: "Happy" }}> */}
-          {/* loggedInUser = "Happy" */}
-          <Header />
-          {/* </UserContext.Provider> */}
-          <Outlet />
-          <Footer/>
+        {/* loggedInUser = "Cena" */}
+        {/* <UserContext.Provider value={{ loggedInUser: "Happy" }}> */}
+        {/* loggedInUser = "Happy" */}
+        <Header />
+        {/* </UserContext.Provider> */}
+        <Outlet />
+        <Footer />
         {/* </UserContext.Provider> */}
       </Provider>
     </div>
@@ -51,7 +53,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/aboutus",
-        element: <AboutUs />,
+        element: (<Suspense fallback={<AboutShimmer/>}>
+          <AboutUs />
+        </Suspense>)
       },
       {
         path: "contact",
