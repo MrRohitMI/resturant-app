@@ -31,8 +31,8 @@ const Contact = () => {
           </p>
 
           <div className="mt-6 space-y-3 text-gray-700">
-            <p>📧 support@foodapp.com</p>
-            <p>📞 +91 98765 43210</p>
+            <p>📧 rohitmourya0012@gmail.com</p>
+            <p>📞 +91 9927866974</p>
             <p>📍 India</p>
             <p>⏰ 9 AM - 6 PM</p>
           </div>
