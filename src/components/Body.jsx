@@ -29,7 +29,7 @@ const Body = () => {
   };
   const btnClass = "bg-blue-400 rounded px-1 py-1.5 border border-blue-900 hover:bg-blue-500"
   if (status === "Offline") return <h1>Please connect to a network.....</h1>;
-  return listOfRestaurants.length === 0 ? (
+  return listOfRestaurants?.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="body flex-1 overflow-auto">
@@ -92,7 +92,7 @@ const Body = () => {
           />
         </div> */}
       </div>
-      {filteredRestaurants.length >= 1 ?
+      {filteredRestaurants?.length >= 1 ?
         <div className="res-container grid grid-cols-1 gap-7 mx-3 mb-7 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-6">
           {filteredRestaurants.map((restaurant, index) => (
             <Link

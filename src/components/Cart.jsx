@@ -11,7 +11,6 @@ const Cart = () => {
     if (confirmClear) dispatch(clearCart());
   };
   const totalPrice = cartItems.reduce((total, item) => total + ((item.price / 100 || item.defaultPrice / 100) * item.quantity), 0)
-  console.log(cartItems);
   return (
     <div className="flex-1 overflow-auto">
       <div className="font-bold text-center">Cart</div>

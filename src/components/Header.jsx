@@ -33,9 +33,10 @@ const Header = () => {
     <li>
       <Link to="/contact">Contact Us</Link>
     </li>
-    <li>
+    {/* <li>
       <Link to="/grossery">Grossery</Link>
-    </li></>)
+    </li> */}
+    </>)
   return (
     <>
       <nav className="flex justify-between items-center bg-orange-300 p-2">
@@ -49,9 +50,9 @@ const Header = () => {
             <li>
               {cartLink}
             </li>
-            <li>
+            {/* <li>
               {loginBtn}
-            </li>
+            </li> */}
             <div className="font-bold ">{data.loggedInUser}</div>
           </ul>
         </div>
@@ -68,7 +69,7 @@ const Header = () => {
           <ul className="*:hover:text-blue-900"><li>Online Status : {status === "Online" ? "✅" : "❌"}</li>
             {links}
           </ul>
-          {loginBtn}
+          {/* {loginBtn} */}
         </div> : ""}</>
   );
 };
